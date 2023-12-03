@@ -1,0 +1,8 @@
+@{
+    ViewData["Title"] = $"All Dishes Page";
+}
+
+<div class="text-center mt-5">
+    <p class="fw-normal fs-1"><u>Yum! Check out our tasty dishes!</u></p>
+    @await Html.PartialAsync("Tables/_AllDishes")
+</div>

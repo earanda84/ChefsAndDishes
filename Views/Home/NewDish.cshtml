@@ -1,0 +1,9 @@
+@{
+    ViewData["Title"] = $"Add a Dish Page";
+}
+
+<div class="text-center mt-5 col-md-7 mx-auto">
+    <p class="fw-normal fs-1"><u>Yum! Check out our tasty dishes!</u></p>
+    @* Llama al partial formulario para agregar Platos *@
+    @await Html.PartialAsync("Forms/_NewDish")
+</div>

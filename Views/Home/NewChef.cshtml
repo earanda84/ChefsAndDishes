@@ -1,0 +1,9 @@
+@{
+    ViewData["Title"] = $"Add a new Chef Page";
+}
+
+
+<div class="text-center mt-5 col-md-7 mx-auto">
+    <p class="fw-normal fs-1"><u>Add a new chef</u></p>
+    @await Html.PartialAsync("Forms/_NewChef")
+</div>

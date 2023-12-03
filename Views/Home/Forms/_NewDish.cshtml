@@ -1,0 +1,61 @@
+@model Dish
+
+<form asp-action="CreateDish" asp-controller="Home" method="post" class="mt-5 border shadow rounded p-5">
+    <div class="row">
+        @* Name of Dish *@
+        <div class="col-md-4  text-start">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        @* Chef's Name *@
+        <div class="col-md-4 text-start">
+            <div class="mb-3">
+                <label asp-for="ChefId" class="form-label">Chef's Name</label>
+                <select asp-for="ChefId" class="form-select">
+                    @* Este es el ViewBag creado en el controlador, para que se pueda persisitir al enviar el formulario, ya que no entendí muy bien como usar el modelo Dish conjuntamente con el modelo Chef, para que cuando se envíe el formulario, exista persitencia de los datos y además de las validaciones creadas en el modelo Dish. *@
+                    @if (ViewBag.Chefs != null)
+                    {
+                        @foreach (var chef in ViewBag.Chefs)
+                        {
+                            <option value="@chef.ChefId">@($"{chef.FirstName} {chef.LastName}")</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+
+        @* Tastiness *@
+        <div class="col-md-4 text-start">
+            <div class="mb-3">
+                <label asp-for="Tastiness" class="form-label"></label>
+                <select asp-for="Tastiness" class="form-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <span asp-validation-for="Tastiness" class="text-danger"></span>
+            </div>
+        </div>
+
+        @* # Calories *@
+        <div class="row">
+            <div class="col-md-4 text-start">
+                <div class="mb-3">
+                    <label asp-for="Calories" class="form-label"></label>
+                    <input asp-for="Calories" class="form-control">
+                    <span asp-validation-for="Calories" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-end mt-3">
+        <button type="submit" class="btn btn-primary shadow">Add Dish</button>
+    </div>
+</form>

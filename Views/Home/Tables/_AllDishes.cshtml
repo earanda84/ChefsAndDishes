@@ -1,0 +1,26 @@
+@model List<Dish>
+
+<table class="table table-striped mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Chef</th>
+            <th scope="col">Tastiness</th>
+            <th scope="col">Calories</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Dish dish in Model)
+            {
+                <tr>
+                    <th scope="row">@dish.Name</th>
+                    <th scope="row">@dish.Creator?.FirstName @dish.Creator?.LastName</th>
+                    <th scope="row">@dish.Tastiness</th>
+                    <th scope="row">@dish.Calories</th>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

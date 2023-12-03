@@ -1,0 +1,26 @@
+@model List<Chef>
+
+<table class="table table-striped mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col"># of Dishes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Chef chef in Model)
+            {
+                <tr>
+                    <th scope="row">@chef.FirstName @chef.LastName</th>
+                    @* Acá solo llama a la propiedad de lectura del modelo Age, para que muestre la edad*@
+                    <th scope="row">@chef.Age</th>
+                    @* Para que muestre la cantidad total de platos por cada chef, se pasa pasa el metodo de listas Count, mostrando la cantidad de platos que el chef tiene asociados *@
+                    <th scope="row">@chef.AllDishes.Count</th>                    
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
